@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Hello yacht.pug #{title}
+  - const results = [{ Color: 'Green',Yacht_Number : 32, Sizeof_Yacht: 6000 },{ Color: 'Black', Yacht_Number: 33,Sizeof_Yacht: 8000 },{ Color: 'Blue',Yacht_Number: 34,Sizeof_Yacht: 10000 }]
+  .container-fluid
+    .row
+      each yacht,index in results
+        div(class="col-sm-2" onclick=`purchase(${index})`)
+          h3 #{yacht.Color}
+          p Yacht_Number: #{yacht.Yacht_Number}
+          p Capacity: $#{yacht.Sizeof_Yacht}
+  
+  script.
+    function purchase(index) {
+        alert(`You purchased : ${index}`)}
+  
