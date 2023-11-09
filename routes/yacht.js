@@ -1,12 +1,6 @@
 var express = require('express');
+const yacht_controlers= require('../controllers/yacht');
 var router = express.Router();
-
-
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('yacht', { title: 'Search results ' });
-  
-});
-
+/* GET costumes */
+router.get('/', yacht_controlers.yacht_view_all_Page);
 module.exports = router;

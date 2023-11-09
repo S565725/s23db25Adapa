@@ -4,5 +4,5 @@ const costumeSchema = mongoose.Schema({
     Yacht_Number: Number,
     Sizeof_Yacht: Number
 })
-module.exports = mongoose.model("Costume", 
-costumeSchema)
+module.exports = mongoose.model("yacht", 
+yachtSchema)
