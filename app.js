@@ -19,9 +19,10 @@ var yachtRouter = require('./routes/yacht');
 var resourceRouter = require('./routes/resource');
 
 
+
 // We can seed the collection if needed on 
 //server start
-async function recreateDB(){
+/*async function recreateDB(){
  // Delete everything
  await yacht.deleteMany();
  let instance1 = new 
@@ -54,23 +55,10 @@ Sizeof_Yacht:8000});
  ).catch(err=>{
  console.error(err)
  });
-
-
-
-
-
-
-
-
 }
 let reseed = true;
 if (reseed) {recreateDB();
-}
-
-
-
-
-
+}*/
 var app = express();
 
 // view engine setup
@@ -87,9 +75,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/yacht', yachtRouter);
 app.use('/resource', resourceRouter);
-
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -112,7 +97,4 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once("open", function(){
 console.log("Connection to DB succeeded")});
-
-
-
 module.exports = app;
