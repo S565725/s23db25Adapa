@@ -1,31 +1,31 @@
 extends layout
 block content
- h1= title
- form(id='yachtForm', action="/resource/yacht", method="POST")
- div.form-group
- label.costumeAttr(for='Color') Yacht Color
- input#Color(type='text', name='Color')
- div.form-group
- label.yachtAttr(for='Yacht_Number') yacht Yacht_Number
- input#Yacht_Number(type='number', name='Yacht_Number')
- div.form-group
- label.yachtAttr(for='Sizeof_Yacht') yacht Sizeof_Yacht
- input#Sizeof_Yacht(type='number', name='Sizeof_Yacht')
- input(type="submit")
- script.
- document.forms['yachtForm'].addEventListener('submit', (event) => {
- event.preventDefault();
- // TODO do something here to show user that form is being submitted
- fetch(event.target.action, {
- method: 'POST',
- body: new URLSearchParams(new FormData(event.target)) // event.target is the form
- }).then((resp) => {
- return resp.json(); // or resp.text() or whatever the server sends
- }).then((body) => {
- alert("Save succeded")
- // TODO handle body
- }).catch((error) => {
- // TODO handle error
- alert("Save failed " + error )
- });
- });
+  h1= title
+  form(id='yachtForm', action="/resource/yacht", method="POST")
+    div.form-group
+      label.yachtAttr(for='Color') yacht Color
+      input#Color(type='text', name='Color')
+    div.form-group
+      label.yachtAttr(for='Yacht_Number') yacht Yacht_Number
+      input#Yacht_Number(type='number', name='Yacht_Number')
+    div.form-group
+      label.yachtAttr(for='Sizeof_Yacht') yacht Sizeof_Yacht
+      input#Sizeof_Yacht(type='number', name='Sizeof_Yacht')
+    input(type="submit")
+  script.
+    document.forms['yachtForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Save succeeded");
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Save failed " + error);
+      });
+    });
