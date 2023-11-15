@@ -22,7 +22,7 @@ var resourceRouter = require('./routes/resource');
 
 // We can seed the collection if needed on 
 //server start
-/*async function recreateDB(){
+async function recreateDB(){
  // Delete everything
  await yacht.deleteMany();
  let instance1 = new 
@@ -58,7 +58,7 @@ Sizeof_Yacht:8000});
 }
 let reseed = true;
 if (reseed) {recreateDB();
-}*/
+}
 var app = express();
 
 // view engine setup

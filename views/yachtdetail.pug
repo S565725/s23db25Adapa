@@ -1,0 +1,21 @@
+extends layout
+block content
+ h1= title
+ - let yachtid = toShow._id
+ - let yachtColor = toShow.Color
+ - let yachtYacht_Number = toShow.Yacht_Number
+ - let yachtSizeof_Yacht = toShow.Sizeof_Yacht
+ div
+ div.row
+ div(class='yachtAttr mr-3') yacht ID is:
+ div #{yachtid}
+ 
+ div.row
+ div(class='yachtAttr mr-3') yacht Color is:
+ div #{yachtColor}
+ div.row
+ div(class='yachtAttr mr-3') yacht Number is:
+ div #{yachtYacht_Number}
+ div.row
+ div(class='yachtAttr mr-3') yacht Sizeof_Yacht is:
+ div #{yachtSizeof_Yacht}

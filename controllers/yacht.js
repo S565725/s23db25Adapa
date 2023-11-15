@@ -60,6 +60,19 @@ exports.yacht_delete = async function (req, res) {
 /*exports.yacht_delete = function (req, res) {
    res.send('NOT IMPLEMENTED: yacht delete DELETE ' + req.params.id);
 };*/
+// Handle a show one view with id specified by query
+exports.yacht_view_one_Page = async function(req, res) {
+   console.log("single view for id " + req.query.id)
+   try{
+   result = await yacht.findById( req.query.id)
+   res.render('yachtdetail', 
+  { title: 'yacht Detail', toShow: result });
+   }
+   catch(err){
+   res.status(500)
+   res.send(`{'error': '${err}'}`);
+   }
+  };
 
 
 
@@ -83,6 +96,20 @@ ${JSON.stringify(req.body)}`)
 failed`);
    }
 };
+// Handle building the view for creating a costume.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.yacht_create_Page = function(req, res) {
+   console.log("create view")
+   try{
+   res.render('yachtcreate', { title: 'Yacht Create'});
+   }
+   catch(err){
+   res.status(500)
+   res.send(`{'error': '${err}'}`);
+   }
+  };
+  
 // VIEWS
 // Handle a show all view
 
