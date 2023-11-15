@@ -17,4 +17,7 @@ router.get('/create', yacht_controlers.yacht_create_Page);
 /* GET create update page */
 router.get('/update', yacht_controlers.yacht_update_Page);
 
+/* GET delete costume page */
+router.get('/delete', yacht_controlers.yacht_delete_Page);
+
 module.exports = router;
