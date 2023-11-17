@@ -8,6 +8,7 @@ a {
 }
 
 .yachtAttr {
-  background-color: aquamarine;
+  color:blue;
+  font-style: italic;
   width: 120px;
 } 

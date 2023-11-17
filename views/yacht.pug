@@ -5,14 +5,12 @@ block content
   p Hello yacht.pug #{title}
   - const result = results
   .container-fluid
-    .row
-      each yacht,index in result
-        div(class="col-sm-2" onclick=`purchase(${index})`)
-          h3 #{yacht.Color}
-          p Yacht_Number: #{yacht.Yacht_Number}
-          p Capacity: $#{yacht.Sizeof_Yacht}
-  
-  script.
-    function purchase(index) {
-        alert(`You purchased : ${index}`)}
-  
+    div(class="row m-1")
+      each index in result
+        - let destination = `dispatch(\"/yacht/update?id=${index._id}\")`
+        div(class="col-sm-2", class="m-1") Index #{index.Color} of #{index.Yacht_Number} is #{index.Sizeof_Yacht}
+          button.btn(class="btn-primary m1-1", onclick=destination) Update
+    script.
+      function dispatch(path) {
+        window.location.href = path
+      }
