@@ -17,4 +17,9 @@ router.put('/yacht/:id', yacht_controller.yacht_update_put);
 router.get('/yacht/:id', yacht_controller.yacht_detail);
 // GET request for list of all Costume items.
 router.get('/yacht', yacht_controller.yacht_list);
+
+
+
+
+
 module.exports = router;
