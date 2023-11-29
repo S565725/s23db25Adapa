@@ -15,14 +15,14 @@ router.post('/register', function (req, res) {
   Account.findOne({ username: req.body.username })
     .then(function (user) {
       if (user != null) {
-        console.log("exists " + req.body.username)
+        console.log("exists " + req.body.username);
         return res.render('register', { title: 'Registration', message: 'Existing User', account: req.body.username });
       }
 
       let newAccount = new Account({ username: req.body.username });
       Account.register(newAccount, req.body.password, function (err, user) {
         if (err) {
-          console.log("db creation issue " + err)
+          console.log("db creation issue " + err);
           return res.render('register', { title: 'Registration', message: 'access error', account: req.body.username });
         }
 
@@ -46,6 +46,8 @@ router.get('/login', function (req, res) {
 router.post('/login', passport.authenticate('local'), function (req, res) {
   res.redirect('/');
 });
+
+
 
 router.get('/logout', function (req, res) {
   req.logout(function (err) {
