@@ -48,7 +48,7 @@ async function recreateDB(){
  // Delete everything
  await yacht.deleteMany();
  let instance1 = new 
- yacht({Color:"green", Yacht_Number:31, 
+ yacht({Yacht_Color:"green", Yacht_Number:31, 
 Sizeof_Yacht:15.4});
  instance1.save().then(doc=>{
  console.log("First object saved")}
@@ -59,7 +59,7 @@ Sizeof_Yacht:15.4});
 
  //await yacht.deleteMany();
  let instance2 = new 
- yacht({Color:"blue", Yacht_Number: 32, 
+ yacht({Yacht_Color:"blue", Yacht_Number: 32, 
 Sizeof_Yacht:6000});
  instance2.save().then(doc=>{
  console.log("Second object saved")}
@@ -70,7 +70,7 @@ Sizeof_Yacht:6000});
 
  //await Costume.deleteMany();
  let instance3 = new 
- yacht({Color:"black", Yacht_Number:33, 
+ yacht({Yacht_Color:"black", Yacht_Number:33, 
 Sizeof_Yacht:8000});
  instance3.save().then(doc=>{
  console.log("Third object saved")}

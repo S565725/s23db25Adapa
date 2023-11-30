@@ -1,16 +1,39 @@
 extends layout
-
+ 
 block content
   h1= title
-  p Hello yacht.pug #{title}
-  - const result = results
-  .container-fluid
+  - let items = results;
+    button.btn( class="btn-success", onclick= `dispatch(\"/yacht/create")`) Create
+ 
+  div(class="container-fluid")
     div(class="row m-1")
-      each index in result
-        - let destination = `dispatch(\"/yacht/update?id=${index._id}\")`
-        div(class="col-sm-2", class="m-1") Index #{index.Color} of #{index.Yacht_Number} is #{index.Sizeof_Yacht}
-          button.btn(class="btn-primary m1-1", onclick=destination) Update
-    script.
-      function dispatch(path) {
-        window.location.href = path
-      }
+      each item in items
+        - let destination = `dispatch("/yacht/update?id=${item._id}")`
+        div(class="row-sm-2 m-1")
+          button.btn( class="btn-primary ml-1",  onclick= `dispatch(\"/yacht/update?id=${item._id}\")`) Update
+          button.btn( class="btn-danger ml-1",  onclick= `dispatch(\"/yacht/delete?id=${item._id}\")`) Delete
+          button.btn( class="btn-warning ml-1", onclick= `dispatch(\"/yacht/detail?id=${item._id}\")`) Detail
+          p Yacht Color is #{item.color}
+          p Yacht Number is #{item.Yacht_Number}
+          p Yacht Size is #{item.Sizeof_Yacht}
+ 
+  script.
+    function dispatch(path) {
+      window.location.href = path;
+    }
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Hello yacht.pug #{title}
+//-   - const result = results
+//-   .container-fluid
+//-     div(class="row m-1")
+//-       each index in result
+//-         - let destination = `dispatch(\"/yacht/update?id=${index._id}\")`
+//-         div(class="col-sm-2", class="m-1") Index #{index.Color} of #{index.Yacht_Number} is #{index.Sizeof_Yacht}
+//-           button.btn(class="btn-primary m1-1", onclick=destination) Update
+//-     script.
+//-       function dispatch(path) {
+//-         window.location.href = path
+//-       }

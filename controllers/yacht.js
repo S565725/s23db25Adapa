@@ -31,7 +31,7 @@ exports.yacht_create_post = async function (req, res) {
    // Even though bodies can be in many different formats, we will be picky
    // and require that it be a json object
    // {"costume_type":"goat", "cost":12, "size":"large"}
-   document.Color = req.body.Color;
+   document.Yacht_Color = req.body.Yacht_Color;
    document.Yacht_Number = req.body.Yacht_Number;
    document.Sizeof_Yacht = req.body.Sizeof_Yacht;
    try {
@@ -84,7 +84,7 @@ ${JSON.stringify(req.body)}`)
    try {
       let toUpdate = await yacht.findById(req.params.id)
       // Do updates of properties
-      if (req.body.Color) toUpdate.Color = req.body.Color;
+      if (req.body.Yacht_Color) toUpdate.Yacht_Color = req.body.Yacht_Color;
       if (req.body.Yacht_Number) toUpdate.Yacht_Number = req.body.Yacht_Number;
       if (req.body.Sizeof_Yacht) toUpdate.Sizeof_Yacht = req.body.Sizeof_Yacht;
       let result = await toUpdate.save();

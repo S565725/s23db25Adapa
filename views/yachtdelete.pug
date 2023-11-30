@@ -5,7 +5,7 @@ block content
     h2 No instance to delete
   else
     - let yachtid = toShow._id
-    - let yachtColor = toShow.yachtColor
+    - let Yacht_Color = toShow.Yacht_Color
     - let yachtYacht_Number = toShow.Yacht_Number
     - let yachtSizeof_Yacht = toShow.Sizeof_Yacht
     - let actionid = "/resource/yacht/" + yachtid
@@ -19,7 +19,7 @@ block content
           div #{yachtid}
       div.row
         div(class='yachtAttr mr-3') yacht Color is:
-          div #{yachtColor}
+          div #{Yacht_Color}
       div.row
         div(class='yachtAttr mr-3') yacht Yacht_Number is:
           div #{yachtYacht_Number}

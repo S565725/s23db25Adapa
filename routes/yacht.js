@@ -18,7 +18,7 @@ router.get('/yacht/:id', yacht_controlers.yacht_detail);
 router.get('/detail', yacht_controlers.yacht_view_one_Page);
 
 /* GET create costume page */
-router.get('/create', yacht_controlers.yacht_create_Page);
+router.get('/create',secured, yacht_controlers.yacht_create_Page);
 
 /* GET create update page */
 router.get('/update',secured, yacht_controlers.yacht_update_Page);
@@ -31,6 +31,6 @@ router.get('/update',secured, yacht_controlers.yacht_update_Page);
 //router.get('/update', secured, yacht_controlers.yacht_update_Page);
 
 /* GET delete costume page */
-router.get('/delete', yacht_controlers.yacht_delete_Page);
+router.get('/delete',secured, yacht_controlers.yacht_delete_Page);
 
 module.exports = router;
